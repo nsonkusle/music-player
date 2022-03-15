@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+           margin-bottom: 20px;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            background: #fceabb;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f8b500, #fceabb);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .arrow{
+            margin-top: 20px;
+        }
+        img{
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px silver;
+        } 
+        .left, .right { 
+            padding: 15px; 
+            cursor: pointer;  
+            width: auto;    
+            font-weight: bold;  
+            font-size: 28px;  
+            color: white
+        }
+        button{
+            border: 0;
+            background-color: #f8b500;
+            border-radius: 5px;
+        }
+        button:hover , h1:hover{
+            border-radius: 10px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>SONGS</h1>
+    
+    <div class="images">
+        <div class="slider">
+            <img src="https://static.toiimg.com/thumb/88318111.cms?width=545&height=307&imgsize=136679" alt="" height="500px" width="800px">
+        </div>
+        <div class="slider">
+            <img src="90 degree.webp" alt="" height="500px" width="800px">
+        </div> 
+        <div class="slider">
+            <img src="teri jatti.cms" alt="" height="500px" width="800px">
+        </div>    
+        <div class="slider">
+            <img src="bijlee-bijlee.webp" alt="" height="500px" width="800px">
+        </div>    
+        <div class="slider">
+            <img src="judge.jpg" alt="" height="500px" width="800px">
+        </div>    
+        <div class="slider">
+            <img src="tara tuttya.jpg" alt="" height="500px" width="800px">
+        </div>    
+            
+           
+    </div>
+    <div class="arrow">
+        <button><a class="left" onclick="nextSlide(-1)">Prev❮</a> </button>
+        <button><a class="right" onclick="nextSlide(1)">❯Next</a></button>
+    </div>
+        <script>
+            var slide_index = 1;  
+    displaySlides(slide_index);  
+
+    function nextSlide(n) {  
+        displaySlides(slide_index += n);  
+    }  
+
+    function currentSlide(n) {  
+        displaySlides(slide_index = n);  
+    }  
+
+    function displaySlides(n) {  
+        var i;  
+        var slides = document.getElementsByClassName("slider");  
+        if (n > slides.length) { slide_index = 1 }  
+        if (n < 1) { slide_index = slides.length }  
+        for (i = 0; i < slides.length; i++) {  
+            slides[i].style.display = "none";  
+        }  
+        slides[slide_index - 1].style.display = "block";  
+    }  
+        </script>
+</body>
+</html>
